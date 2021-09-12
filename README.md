@@ -20,3 +20,8 @@ GET /logs
 ```
 Returns Jira issue details about the Jira Items which are get filtered with provided JQL in application.properties file
 
+#### Future work Items
+* Add/Modify API to accept JQL from user and Provide the needed details fot those Jira Issues
+* Provide ability to sort the result according to the created/updated date
+* Add DockerFile to the current repo
+* Add Api Doc json 
