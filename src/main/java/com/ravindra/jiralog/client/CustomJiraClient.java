@@ -3,6 +3,7 @@ package com.ravindra.jiralog.client;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 
 import javax.annotation.PostConstruct;
 
@@ -57,11 +58,11 @@ public class CustomJiraClient {
 		List<IssueDetail> issueDetails = new ArrayList<>();
 
 		issues.forEach(issue -> {
-			List<CommentDetail> commentDetail = new ArrayList<>();
+			TreeSet<CommentDetail> commentDetail = new TreeSet<>();
 			jiraRestClient.getIssueClient().getIssue(issue.getKey()).claim().getComments().forEach(comment -> {
 				commentDetail.add(
 						new CommentDetail(comment.getAuthor().getDisplayName(), comment.getCreationDate().toString(),
-								comment.getUpdateDate().toString(), comment.getBody().toString()));
+								comment.getUpdateDate(), comment.getBody().toString()));
 
 			});
 			issueDetails.add(new IssueDetail(issue.getKey(), issue.getSummary(), commentDetail));
