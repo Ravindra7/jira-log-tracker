@@ -7,15 +7,15 @@ import org.joda.time.DateTime;
 import com.atlassian.jira.rest.client.api.domain.BasicUser;
 import com.atlassian.jira.rest.client.api.domain.Visibility;
 
-public class CommentDetail {
+public class CommentDetail implements Comparable<CommentDetail> {
 
 	@Nullable
 	private String author;
 	private String creationDate;
-	private String updateDate;
+	private DateTime updateDate;
 	private String body;
 
-	public CommentDetail(String author, String creationDate, String updateDate, String body) {
+	public CommentDetail(String author, String creationDate, DateTime updateDate, String body) {
 		super();
 		this.author = author;
 		this.creationDate = creationDate;
@@ -40,10 +40,10 @@ public class CommentDetail {
 	}
 
 	public String getUpdateDate() {
-		return updateDate;
+		return updateDate.toString();
 	}
 
-	public void setUpdateDate(String updateDate) {
+	public void setUpdateDate(DateTime updateDate) {
 		this.updateDate = updateDate;
 	}
 
@@ -53,6 +53,11 @@ public class CommentDetail {
 
 	public void setBody(String body) {
 		this.body = body;
+	}
+
+	@Override
+	public int compareTo(CommentDetail o) {
+		return o.updateDate.compareTo(this.updateDate);
 	}
 
 }
