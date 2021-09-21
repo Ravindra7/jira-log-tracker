@@ -6,7 +6,7 @@ import com.ravindra.jiralog.model.IssueDetail;
 
 public interface JiraLogFetcher {
 
-	List<IssueDetail> getJiraLogs();
+	List<IssueDetail> getJiraLogs(int fromDays);
 
 	String getJiraIssueSummary(String jiraId);
 

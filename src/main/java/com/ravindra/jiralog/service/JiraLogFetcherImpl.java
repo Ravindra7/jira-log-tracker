@@ -21,8 +21,8 @@ public class JiraLogFetcherImpl implements JiraLogFetcher {
 	}
 
 	@Override
-	public List<IssueDetail> getJiraLogs() {
-		return customJiraClient.getIssueLogs();
+	public List<IssueDetail> getJiraLogs(int fromDays) {
+		return customJiraClient.getIssueLogs(fromDays);
 	}
 
 }
