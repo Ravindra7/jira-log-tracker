@@ -31,7 +31,7 @@ public class JiraLogController {
 
 	@RequestMapping(value = "logs", method = RequestMethod.GET, produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<IssueDetail>> getlogs(
-			@RequestParam(value = "name", defaultValue = "World") String name) {
-		return new ResponseEntity<List<IssueDetail>>(jiralogfetcher.getJiraLogs(), HttpStatus.OK);
+			@RequestParam(value = "fromDays", defaultValue = "1") int fromDays) {
+		return new ResponseEntity<List<IssueDetail>>(jiralogfetcher.getJiraLogs(fromDays), HttpStatus.OK);
 	}
 }

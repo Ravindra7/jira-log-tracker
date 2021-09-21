@@ -4,9 +4,6 @@ import javax.annotation.Nullable;
 
 import org.joda.time.DateTime;
 
-import com.atlassian.jira.rest.client.api.domain.BasicUser;
-import com.atlassian.jira.rest.client.api.domain.Visibility;
-
 public class CommentDetail implements Comparable<CommentDetail> {
 
 	@Nullable

@@ -1,6 +1,5 @@
 package com.ravindra.jiralog.model;
 
-import java.util.List;
 import java.util.Set;
 
 public class IssueDetail {
